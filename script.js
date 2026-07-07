@@ -15,8 +15,12 @@
   loadGallery('galleryFlashback', 'flashback', 12);
   loadGallery('galleryFoodglow', 'foodglow', 12);
 })();
+
+// ---- Reveal slider (hero signature interaction) ----
 (function () {
-  const frame = document.getElementById('revealWidget').querySelector('.reveal-frame');
+  const widget = document.getElementById('revealWidget');
+  if (!widget) return;
+  const frame = widget.querySelector('.reveal-frame');
   const before = document.getElementById('revealBefore');
   const handle = document.getElementById('revealHandle');
   const beforeImg = before.querySelector('img');
