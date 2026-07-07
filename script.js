@@ -1,4 +1,20 @@
-// ---- Reveal slider (hero signature interaction) ----
+// ---- Gallery auto-loader (detecta cuantas fotos hay solo) ----
+(function () {
+  function loadGallery(containerId, folder, maxCheck) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    for (let i = 1; i <= maxCheck; i++) {
+      const img = new Image();
+      img.src = `assets/gallery/${folder}/${i}.jpg`;
+      img.alt = `${folder} ${i}`;
+      img.loading = 'lazy';
+      img.onerror = function () { this.remove(); };
+      container.appendChild(img);
+    }
+  }
+  loadGallery('galleryFlashback', 'flashback', 12);
+  loadGallery('galleryFoodglow', 'foodglow', 12);
+})();
 (function () {
   const frame = document.getElementById('revealWidget').querySelector('.reveal-frame');
   const before = document.getElementById('revealBefore');
